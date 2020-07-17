@@ -6,10 +6,9 @@ This challenge allows you to practice the concepts and techniques learned over t
 
 This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
 
-You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your TL if you need direction. 
+You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your TL if you need direction.
 
 _You have **three hours** to complete this challenge. Plan your time accordingly._
-
 
 ## Introduction
 
@@ -24,12 +23,17 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
+   Context API allows you to avoid prop drilling when managing state locally and avoids lengthy code when using the Redux store. Context API is good when you want to manage once specific part of the component tree what has a couple of child components.
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+   Actions are objects that tell our reducer what type of action is going to happen in our application, what part of our state needs to be updated, and passes along data to update state if it's needed. Reducers are pure functions that take in the current state and an action to allow us to update our state in a very predictable manner. The store is a container provided by Redux that holds various functions and data that helps us hold our state in a central place to reference and update when we need it.
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+   Application state is state that affects the entire application. It's good to use it when most of your components are going to need the same data to work. Component state is state that only affects a particular component. It's best to manage state locally when none of the other components are going to need that data, such as in your forms.
 4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+   Our action creators usually return an object with a type and an optional payload. Redux Thunk allows us to return a function that's going to pull the dispatch method from the Redux store and run asynchronous operations.
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+   I like Redux since it's easy for me to think about only having a single place to store everything and pull in the data I need where I need it. Although Context API has a lot nicer syntax, I can see how it has it's limitations whenever we need to re-use components. I need to investigate a little more into that.
 
-You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
+You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
 ## Instructions
 
@@ -37,7 +41,8 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 > This section should include instruction for the sprint challenge. These should only cover things that are _not_ being evaluated by the challenge itself, e.g. environment/project setup, link to a starter project, etc. In general, this will be the following Git fork, clone, branch, commit, push, create pull request flow, though may need to be adapted for some specific challenges.
 
- [ ] `fork & clone` this repository.
+[ ] `fork & clone` this repository.
+
 - [ ] `cd` into the forked copy of this repository.
 - [ ] **RUN** `npm install` to retrieve all `server-side` the dependencies.
 - [ ] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
@@ -60,7 +65,7 @@ Your finished project must include all of the following requirements:
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
-#### Resource: API documentation 
+#### Resource: API documentation
 
 ##### GET '/smurfs'
 
@@ -73,8 +78,8 @@ In your solution, it is essential that you follow best practices and produce cle
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
-  }
+    id: 0,
+  },
 ];
 ```
 
@@ -106,31 +111,28 @@ Example of object created in Smurf DB:
     name: "Brainey",
     age: 200,
     height: "5cm",
-    id: 0
+    id: 0,
   },
   {
     name: "Sleepy",
     age: 200,
     height: "5cm",
-    id: 1
-  }
+    id: 1,
+  },
 ];
 ```
 
-
-### Task 3: Stretch Goals 
+### Task 3: Stretch Goals
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
-* [ ] Build a smurf profile page with using react-router and dynamic url params  
-* [ ] Using React Testing Library, test one or more of your components (not any component that fetches data though)
+- [ ] Build a smurf profile page with using react-router and dynamic url params
+- [ ] Using React Testing Library, test one or more of your components (not any component that fetches data though)
 
 ## Submission format
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
 - [ ] Add your team lead as a reviewer on the pull-request
 - [ ] Your team lead will count the project as complete after receiving your pull-request
-
-
