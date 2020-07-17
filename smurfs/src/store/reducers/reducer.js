@@ -2,9 +2,7 @@ import {
   FETCHING_SMURFS_START,
   FETCHING_SMURFS_SUCCESS,
   FETCHING_SMURFS_FAILURE,
-  ADDING_SMURF_START,
-  ADDING_SMURF_SUCCESS,
-  ADDING_SMURF_FAILURE,
+  ADDING_SMURF,
 } from "../actions/actions";
 
 const initialState = {
@@ -32,12 +30,7 @@ export const reducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload,
       };
-    // case ADDING_SMURF_START:
-    //   return {
-    //     ...state,
-    //     isLoading: true,
-    //   };
-    case ADDING_SMURF_SUCCESS:
+    case ADDING_SMURF:
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],

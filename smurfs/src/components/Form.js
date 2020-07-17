@@ -8,18 +8,13 @@ function Form(props) {
     name: "",
     age: "",
     height: "",
-    id: Date.now(),
   };
-  const [inputs, setInputs, handleChanges] = useForm({
-    name: "",
-    age: "",
-    height: "",
-    id: Date.now(),
-  });
+
+  const [inputs, setInputs, handleChanges] = useForm(emptyForm);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addSmurf(inputs);
+    props.addSmurf(inputs);
     setInputs(emptyForm);
   };
 

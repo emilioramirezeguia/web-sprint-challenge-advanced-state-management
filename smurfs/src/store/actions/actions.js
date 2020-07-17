@@ -4,9 +4,7 @@ import axios from "axios";
 export const FETCHING_SMURFS_START = "FETCHING_SMURFS_START";
 export const FETCHING_SMURFS_SUCCESS = "FETCHING_SMURFS_SUCCESS";
 export const FETCHING_SMURFS_FAILURE = "FETCHING_SMURFS_FAILURE";
-export const ADDING_SMURF_START = "ADDING_SMURF_START";
-export const ADDING_SMURF_SUCCESS = "ADDING_SMURF_SUCCESS";
-export const ADDING_SMURF_FAILURE = "ADDING_SMURF_FAILURE";
+export const ADDING_SMURF = "ADDING_SMURF";
 
 // Action Creators
 
@@ -25,16 +23,14 @@ export const fetchSmurfs = () => {
 };
 
 export const addSmurf = (smurf) => {
-  debugger;
   return (dispatch) => {
-    // dispatch({ type: ADDING_SMURF_START });
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then((response) => {
-        dispatch({ type: ADDING_SMURF_SUCCESS, payload: smurf });
+        dispatch({ type: ADDING_SMURF, payload: response.data });
       })
       .catch((error) => {
-        dispatch({ type: ADDING_SMURF_FAILURE, payload: error.message });
+        console.log("Couldn't add Smurf. Error: ", error.message);
       });
   };
 };

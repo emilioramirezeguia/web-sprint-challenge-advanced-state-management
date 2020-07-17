@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { addSmurf } from "../store/actions/actions";
 
 export const useForm = (initialValue) => {
   const [inputs, setInputs] = useState(initialValue);
